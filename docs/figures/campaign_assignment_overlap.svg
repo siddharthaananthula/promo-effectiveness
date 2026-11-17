@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1030" viewBox="0 0 1500 1030">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#243447}.title{font-size:27px;font-weight:700}.sub{font-size:15px;fill:#526273}.head{font-size:17px;font-weight:700}.tick{font-size:12px;fill:#526273}.lab{font-size:12px}.count{font-size:11px;fill:#263849}</style>
+<text x="60" y="45" class="title">Campaign assignment and household co-assignment</text>
+<text x="60" y="73" class="sub">Assignment is targeting; scheduled overlap is not verified exposure or an assignment timestamp.</text>
+<text x="185" y="120" class="head">Unique assigned households</text>
+<text x="905" y="120" class="head">Assigned households also assigned elsewhere</text>
+<text x="905" y="140" class="sub">Blue: any other campaign; orange: other campaign dates overlap this schedule</text>
+<line x1="185.0" y1="151" x2="185.0" y2="926" stroke="#e3e8ee"/>
+<text x="185.0" y="948" text-anchor="middle" class="tick">0</text>
+<line x1="287.2" y1="151" x2="287.2" y2="926" stroke="#e3e8ee"/>
+<text x="287.2" y="948" text-anchor="middle" class="tick">227</text>
+<line x1="388.9" y1="151" x2="388.9" y2="926" stroke="#e3e8ee"/>
+<text x="388.9" y="948" text-anchor="middle" class="tick">453</text>
+<line x1="491.1" y1="151" x2="491.1" y2="926" stroke="#e3e8ee"/>
+<text x="491.1" y="948" text-anchor="middle" class="tick">680</text>
+<line x1="592.8" y1="151" x2="592.8" y2="926" stroke="#e3e8ee"/>
+<text x="592.8" y="948" text-anchor="middle" class="tick">906</text>
+<line x1="695.0" y1="151" x2="695.0" y2="926" stroke="#e3e8ee"/>
+<text x="695.0" y="948" text-anchor="middle" class="tick">1133</text>
+<line x1="905.0" y1="151" x2="905.0" y2="926" stroke="#e3e8ee"/>
+<text x="905.0" y="948" text-anchor="middle" class="tick">0</text>
+<line x1="1006.9" y1="151" x2="1006.9" y2="926" stroke="#e3e8ee"/>
+<text x="1006.9" y="948" text-anchor="middle" class="tick">211</text>
+<line x1="1108.8" y1="151" x2="1108.8" y2="926" stroke="#e3e8ee"/>
+<text x="1108.8" y="948" text-anchor="middle" class="tick">422</text>
+<line x1="1211.2" y1="151" x2="1211.2" y2="926" stroke="#e3e8ee"/>
+<text x="1211.2" y="948" text-anchor="middle" class="tick">634</text>
+<line x1="1313.1" y1="151" x2="1313.1" y2="926" stroke="#e3e8ee"/>
+<text x="1313.1" y="948" text-anchor="middle" class="tick">845</text>
+<line x1="1415.0" y1="151" x2="1415.0" y2="926" stroke="#e3e8ee"/>
+<text x="1415.0" y="948" text-anchor="middle" class="tick">1056</text>
+<text x="155" y="164" text-anchor="end" class="lab">C1</text>
+<rect x="185" y="152" width="5.9" height="15" rx="2" fill="#9bb5ca"/>
+<text x="195.9" y="164" class="count">13</text>
+<rect x="905" y="152" width="6.3" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="152" width="5.3" height="15" rx="2" fill="#e28e2c"/>
+<text x="916.3" y="164" class="count">13 / 11</text>
+<text x="155" y="190" text-anchor="end" class="lab">C2</text>
+<rect x="185" y="178" width="21.6" height="15" rx="2" fill="#9bb5ca"/>
+<text x="211.6" y="190" class="count">48</text>
+<rect x="905" y="178" width="23.2" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="178" width="17.4" height="15" rx="2" fill="#e28e2c"/>
+<text x="933.2" y="190" class="count">48 / 36</text>
+<text x="155" y="216" text-anchor="end" class="lab">C3</text>
+<rect x="185" y="204" width="5.4" height="15" rx="2" fill="#9bb5ca"/>
+<text x="195.4" y="216" class="count">12</text>
+<rect x="905" y="204" width="5.8" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="204" width="5.8" height="15" rx="2" fill="#e28e2c"/>
+<text x="915.8" y="216" class="count">12 / 12</text>
+<text x="155" y="242" text-anchor="end" class="lab">C4</text>
+<rect x="185" y="230" width="36.5" height="15" rx="2" fill="#9bb5ca"/>
+<text x="226.5" y="242" class="count">81</text>
+<rect x="905" y="230" width="39.1" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="230" width="17.4" height="15" rx="2" fill="#e28e2c"/>
+<text x="949.1" y="242" class="count">81 / 36</text>
+<text x="155" y="268" text-anchor="end" class="lab">C5</text>
+<rect x="185" y="256" width="74.7" height="15" rx="2" fill="#9bb5ca"/>
+<text x="264.7" y="268" class="count">166</text>
+<rect x="905" y="256" width="79.2" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="256" width="37.7" height="15" rx="2" fill="#e28e2c"/>
+<text x="989.2" y="268" class="count">164 / 78</text>
+<text x="155" y="294" text-anchor="end" class="lab">C6</text>
+<rect x="185" y="282" width="29.3" height="15" rx="2" fill="#9bb5ca"/>
+<text x="219.3" y="294" class="count">65</text>
+<rect x="905" y="282" width="31.4" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="282" width="29.5" height="15" rx="2" fill="#e28e2c"/>
+<text x="941.4" y="294" class="count">65 / 61</text>
+<text x="155" y="320" text-anchor="end" class="lab">C7</text>
+<rect x="185" y="308" width="89.1" height="15" rx="2" fill="#9bb5ca"/>
+<text x="279.1" y="320" class="count">198</text>
+<rect x="905" y="308" width="94.2" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="308" width="87.9" height="15" rx="2" fill="#e28e2c"/>
+<text x="1004.2" y="320" class="count">195 / 182</text>
+<text x="155" y="346" text-anchor="end" class="lab">C8</text>
+<rect x="185" y="334" width="484.3" height="15" rx="2" fill="#9bb5ca"/>
+<text x="674.3" y="346" class="count">1,076</text>
+<rect x="905" y="334" width="487.3" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="334" width="148.8" height="15" rx="2" fill="#e28e2c"/>
+<text x="1397.3" y="346" class="count">1,009 / 308</text>
+<text x="155" y="372" text-anchor="end" class="lab">C9</text>
+<rect x="185" y="360" width="79.2" height="15" rx="2" fill="#9bb5ca"/>
+<text x="269.2" y="372" class="count">176</text>
+<rect x="905" y="360" width="82.1" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="360" width="66.6" height="15" rx="2" fill="#e28e2c"/>
+<text x="992.1" y="372" class="count">170 / 138</text>
+<text x="155" y="398" text-anchor="end" class="lab">C10</text>
+<rect x="185" y="386" width="55.4" height="15" rx="2" fill="#9bb5ca"/>
+<text x="245.4" y="398" class="count">123</text>
+<rect x="905" y="386" width="59.4" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="386" width="37.7" height="15" rx="2" fill="#e28e2c"/>
+<text x="969.4" y="398" class="count">123 / 78</text>
+<text x="155" y="424" text-anchor="end" class="lab">C11</text>
+<rect x="185" y="412" width="96.3" height="15" rx="2" fill="#9bb5ca"/>
+<text x="286.3" y="424" class="count">214</text>
+<rect x="905" y="412" width="102.9" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="412" width="96.6" height="15" rx="2" fill="#e28e2c"/>
+<text x="1012.9" y="424" class="count">213 / 200</text>
+<text x="155" y="450" text-anchor="end" class="lab">C12</text>
+<rect x="185" y="438" width="76.5" height="15" rx="2" fill="#9bb5ca"/>
+<text x="266.5" y="450" class="count">170</text>
+<rect x="905" y="438" width="81.1" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="438" width="74.4" height="15" rx="2" fill="#e28e2c"/>
+<text x="991.1" y="450" class="count">168 / 154</text>
+<text x="155" y="476" text-anchor="end" class="lab">C13</text>
+<rect x="185" y="464" width="484.8" height="15" rx="2" fill="#9bb5ca"/>
+<text x="674.8" y="476" class="count">1,077</text>
+<rect x="905" y="464" width="506.1" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="464" width="213.0" height="15" rx="2" fill="#e28e2c"/>
+<text x="1416.1" y="476" class="count">1,048 / 441</text>
+<text x="155" y="502" text-anchor="end" class="lab">C14</text>
+<rect x="185" y="490" width="100.8" height="15" rx="2" fill="#9bb5ca"/>
+<text x="290.8" y="502" class="count">224</text>
+<rect x="905" y="490" width="107.2" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="490" width="105.8" height="15" rx="2" fill="#e28e2c"/>
+<text x="1017.2" y="502" class="count">222 / 219</text>
+<text x="155" y="528" text-anchor="end" class="lab">C15</text>
+<rect x="185" y="516" width="7.7" height="15" rx="2" fill="#9bb5ca"/>
+<text x="197.7" y="528" class="count">17</text>
+<rect x="905" y="516" width="8.2" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="516" width="8.2" height="15" rx="2" fill="#e28e2c"/>
+<text x="918.2" y="528" class="count">17 / 17</text>
+<text x="155" y="554" text-anchor="end" class="lab">C16</text>
+<rect x="185" y="542" width="84.6" height="15" rx="2" fill="#9bb5ca"/>
+<text x="274.6" y="554" class="count">188</text>
+<rect x="905" y="542" width="88.9" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="542" width="84.0" height="15" rx="2" fill="#e28e2c"/>
+<text x="998.9" y="554" class="count">184 / 174</text>
+<text x="155" y="580" text-anchor="end" class="lab">C17</text>
+<rect x="185" y="568" width="90.9" height="15" rx="2" fill="#9bb5ca"/>
+<text x="280.9" y="580" class="count">202</text>
+<rect x="905" y="568" width="97.6" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="568" width="94.7" height="15" rx="2" fill="#e28e2c"/>
+<text x="1007.6" y="580" class="count">202 / 196</text>
+<text x="155" y="606" text-anchor="end" class="lab">C18</text>
+<rect x="185" y="594" width="510.0" height="15" rx="2" fill="#9bb5ca"/>
+<text x="700.0" y="606" class="count">1,133</text>
+<rect x="905" y="594" width="510.0" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="594" width="300.9" height="15" rx="2" fill="#e28e2c"/>
+<text x="1420.0" y="606" class="count">1,056 / 623</text>
+<text x="155" y="632" text-anchor="end" class="lab">C19</text>
+<rect x="185" y="620" width="58.5" height="15" rx="2" fill="#9bb5ca"/>
+<text x="248.5" y="632" class="count">130</text>
+<rect x="905" y="620" width="57.5" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="620" width="54.6" height="15" rx="2" fill="#e28e2c"/>
+<text x="967.5" y="632" class="count">119 / 113</text>
+<text x="155" y="658" text-anchor="end" class="lab">C20</text>
+<rect x="185" y="646" width="109.8" height="15" rx="2" fill="#9bb5ca"/>
+<text x="299.8" y="658" class="count">244</text>
+<rect x="905" y="646" width="114.9" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="646" width="110.6" height="15" rx="2" fill="#e28e2c"/>
+<text x="1024.9" y="658" class="count">238 / 229</text>
+<text x="155" y="684" text-anchor="end" class="lab">C21</text>
+<rect x="185" y="672" width="29.3" height="15" rx="2" fill="#9bb5ca"/>
+<text x="219.3" y="684" class="count">65</text>
+<rect x="905" y="672" width="31.4" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="672" width="27.5" height="15" rx="2" fill="#e28e2c"/>
+<text x="941.4" y="684" class="count">65 / 57</text>
+<text x="155" y="710" text-anchor="end" class="lab">C22</text>
+<rect x="185" y="698" width="124.2" height="15" rx="2" fill="#9bb5ca"/>
+<text x="314.2" y="710" class="count">276</text>
+<rect x="905" y="698" width="131.8" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="698" width="123.6" height="15" rx="2" fill="#e28e2c"/>
+<text x="1041.8" y="710" class="count">273 / 256</text>
+<text x="155" y="736" text-anchor="end" class="lab">C23</text>
+<rect x="185" y="724" width="82.4" height="15" rx="2" fill="#9bb5ca"/>
+<text x="272.4" y="736" class="count">183</text>
+<rect x="905" y="724" width="87.4" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="724" width="63.8" height="15" rx="2" fill="#e28e2c"/>
+<text x="997.4" y="736" class="count">181 / 132</text>
+<text x="155" y="762" text-anchor="end" class="lab">C24</text>
+<rect x="185" y="750" width="45.0" height="15" rx="2" fill="#9bb5ca"/>
+<text x="235.0" y="762" class="count">100</text>
+<rect x="905" y="750" width="45.4" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="750" width="28.5" height="15" rx="2" fill="#e28e2c"/>
+<text x="955.4" y="762" class="count">94 / 59</text>
+<text x="155" y="788" text-anchor="end" class="lab">C25</text>
+<rect x="185" y="776" width="84.2" height="15" rx="2" fill="#9bb5ca"/>
+<text x="274.2" y="788" class="count">187</text>
+<rect x="905" y="776" width="90.3" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="776" width="59.9" height="15" rx="2" fill="#e28e2c"/>
+<text x="1000.3" y="788" class="count">187 / 124</text>
+<text x="155" y="814" text-anchor="end" class="lab">C26</text>
+<rect x="185" y="802" width="149.4" height="15" rx="2" fill="#9bb5ca"/>
+<text x="339.4" y="814" class="count">332</text>
+<rect x="905" y="802" width="151.2" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="802" width="10.6" height="15" rx="2" fill="#e28e2c"/>
+<text x="1061.2" y="814" class="count">313 / 22</text>
+<text x="155" y="840" text-anchor="end" class="lab">C27</text>
+<rect x="185" y="828" width="5.4" height="15" rx="2" fill="#9bb5ca"/>
+<text x="195.4" y="840" class="count">12</text>
+<rect x="905" y="828" width="5.8" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="828" width="5.3" height="15" rx="2" fill="#e28e2c"/>
+<text x="915.8" y="840" class="count">12 / 11</text>
+<text x="155" y="866" text-anchor="end" class="lab">C28</text>
+<rect x="185" y="854" width="7.7" height="15" rx="2" fill="#9bb5ca"/>
+<text x="197.7" y="866" class="count">17</text>
+<rect x="905" y="854" width="8.2" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="854" width="7.2" height="15" rx="2" fill="#e28e2c"/>
+<text x="918.2" y="866" class="count">17 / 15</text>
+<text x="155" y="892" text-anchor="end" class="lab">C29</text>
+<rect x="185" y="880" width="53.1" height="15" rx="2" fill="#9bb5ca"/>
+<text x="243.1" y="892" class="count">118</text>
+<rect x="905" y="880" width="51.7" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="880" width="18.8" height="15" rx="2" fill="#e28e2c"/>
+<text x="961.7" y="892" class="count">107 / 39</text>
+<text x="155" y="918" text-anchor="end" class="lab">C30</text>
+<rect x="185" y="906" width="162.5" height="15" rx="2" fill="#9bb5ca"/>
+<text x="352.5" y="918" class="count">361</text>
+<rect x="905" y="906" width="166.1" height="15" rx="2" fill="#4c78a8"/>
+<rect x="905" y="906" width="43.0" height="15" rx="2" fill="#e28e2c"/>
+<text x="1076.1" y="918" class="count">344 / 89</text>
+<text x="440.0" y="985" text-anchor="middle" class="lab">Assigned households</text>
+<text x="1160.0" y="985" text-anchor="middle" class="lab">Co-assigned households (any / overlapping schedule)</text>
+<rect x="905" y="91" width="14" height="14" fill="#4c78a8"/><text x="926" y="103" class="lab">Other campaign assignment</text>
+<rect x="1145" y="91" width="14" height="14" fill="#e28e2c"/><text x="1166" y="103" class="lab">Date-overlapping schedule subset</text>
+<text x="60" y="1010" class="sub">Co-assignment counts are distinct households. Campaign-table records have no assignment-event timestamp; overlap is based on scheduled date ranges.</text>
+</svg>

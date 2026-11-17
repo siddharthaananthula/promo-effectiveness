@@ -1,0 +1,6 @@
+# Descriptive notebook dependencies for the existing retail-dbt environment.
+pandas==2.3.3
+SQLAlchemy==2.0.57
+psycopg2-binary==2.9.13
+python-dotenv==1.2.4
+ipykernel==7.3.0
