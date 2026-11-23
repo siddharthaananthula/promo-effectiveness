@@ -2,6 +2,8 @@
 
 This file curates the decisions specific to Promo Effectiveness. The local `DECISIONS.md` contains the Retail Performance Analytics history and is intentionally excluded from this focused repository. This project extends that repository's PostgreSQL/dbt foundation; shared models remain maintained upstream.
 
+Figures in these decisions come from dunnhumby's public sample dataset, not retailer campaign data.
+
 ## 1. Treat the existing campaign records as descriptive
 
 The analysis distinguishes household campaign assignment, recorded coupon redemption and verified exposure. Assignment indicates targeting, redemption indicates a recorded coupon-use event, and the available data do not verify delivery or exposure. Non-assigned households are not randomized controls. Do not infer incremental campaign impact from observed spending differences.
@@ -14,9 +16,9 @@ Campaign screening used inclusive 28-day pre and post windows and retained zero-
 
 **Decision:** stop before treatment-effect estimation. Do not report uplift or difference-in-differences results from this observational assignment data. Campaign 26 is a descriptive example, not a causal winner.
 
-## 3. Use a descriptive Phase 3 report
+## 3. Use a descriptive campaign report
 
-The notebook reports campaign duration, assigned-household counts, co-assignment and recorded coupon redemptions across all 30 campaigns. Campaign 26 provides the detailed example with 28-day pre/post windows and its 41-day scheduled period. Spending is scaled to a 28-day equivalent for duration comparability, and zero-purchase households remain in denominators. The observed profile is descriptive; it is not an impact estimate.
+The notebook reports campaign duration, assigned-household counts, co-assignment and recorded coupon redemptions across all 30 campaigns. Campaign 26 provides the detailed example with 28-day pre/post windows and its 41-day scheduled period. Spending is scaled to a 28-day equivalent for duration comparability, and zero-purchase households remain in denominators.
 
 Promotion data match 21.72% of transaction lines; the remainder have unknown promotion status. Repeated product-store-week records include conflicting promotion states. Do not classify unmatched sales as unpromoted or use these flags as verified household exposure.
 
@@ -30,7 +32,7 @@ The primary proposed metric is total retailer sales per eligible household durin
 
 The first power illustration incorrectly treated a pooled set of repeated historical household windows as the planning SD. The same 2,500 households appear in three 42-day windows. The pooled 7,500 household-window observations are not 7,500 independent households; pooled SD 240.75 is descriptive only.
 
-The corrected sensitivity scenarios use the largest single-window cross-household SD, 247.47 dataset sales units, and an illustrative reference mean of 193.12. At two-sided α = 0.05 and 80% power, the normal-approximation totals are 20,622 households for a 5% relative MDE, 5,156 for 10%, and 2,292 for 15%. The estimated MDE for a 2,500-household frame is 27.73 units (14.36% of the reference mean). These are sample-dataset planning illustrations, not Endeavour statistics; assignment timing is unknown, and the scenarios omit clustering, attrition and treatment-delivery dilution.
+The corrected sensitivity scenarios use the largest single-window cross-household SD, 247.47 dataset sales units, and an illustrative reference mean of 193.12. At two-sided α = 0.05 and 80% power, the normal-approximation totals are 20,622 households for a 5% relative MDE, 5,156 for 10%, and 2,292 for 15%. The estimated MDE for a 2,500-household frame is 27.73 units (14.36% of the reference mean). Assignment timing is unknown, and the scenarios omit clustering, attrition and treatment-delivery dilution.
 
 ## 6. Publish a focused extension
 

@@ -2,7 +2,7 @@
 
 Retail Media teams need to distinguish sales observed around a campaign from sales the campaign actually caused. Assignment, coupon redemption and promotion records can describe targeting and activity, but without verified exposure and a credible counterfactual they do not establish incrementality.
 
-This completed analytical case study uses dunnhumby's *The Complete Journey* sample to validate campaign and promotion data, assess an observational design, and report campaign spending descriptively. The observational data did not support a defensible causal uplift estimate. The project therefore proposes a prospective randomised holdout for future incrementality measurement. The sample is not Endeavour Group data and does not measure Endeavour's campaign performance.
+The measurement workflow is relevant to Retail Media teams such as Endeavour Group's. The analysis uses a public sample dataset, not any retailer's campaign data. This completed analytical case study validates campaign and promotion data, assesses an observational design, and reports campaign spending descriptively. The observational data did not support a defensible causal uplift estimate. The project therefore proposes a prospective randomised holdout for future incrementality measurement.
 
 **Explore the work:** [Executive brief](docs/promo_effectiveness_executive_brief.md) · [Full case study](docs/promo_effectiveness_case_study.md) · [Proposed experiment](docs/experiment_design.md) · [Validated notebook](notebooks/01_promo_effectiveness.ipynb)
 
@@ -35,7 +35,7 @@ The proposed test evaluates one fixed Retail Media package in a prospective hold
 
 The primary outcome is total retailer sales per eligible household during a **42-day campaign**, with a **28-day follow-up** for secondary purchasing measures. Assignment, delivery, redemption and sales must be logged separately. No experiment has been conducted.
 
-An illustrative **10% minimum detectable effect (MDE) requires 5,156 total households** under the documented assumptions: equal household allocation, two-sided α = 0.05, 80% power and a single-window cross-household SD of 247.47 sample-dataset sales units. The calculation is a planning scenario, not an Endeavour estimate; it excludes cluster inflation, audience loss and delivery dilution. Repeated historical observations of the same households are not counted as independent units.
+An illustrative **10% minimum detectable effect (MDE) requires 5,156 total households** under the documented assumptions: equal household allocation, two-sided α = 0.05, 80% power and a single-window cross-household SD of 247.47 sample-dataset sales units. This planning scenario excludes cluster inflation, audience loss and delivery dilution. Repeated historical observations of the same households are not counted as independent units.
 
 ## Technical approach and reproducibility
 

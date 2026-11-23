@@ -4,15 +4,15 @@
 
 **Decision:** Do not claim incremental campaign impact from the existing observational data. Use it to describe targeting, recorded redemptions, sales patterns and data quality; require a prospective randomised holdout before making an incrementality claim.
 
-This is a Promo Effectiveness portfolio extension using the PostgreSQL and dbt foundation from Retail Performance Analytics. It analyses dunnhumby's *The Complete Journey* sample dataset, obtained separately and modelled in the shared database; permission to publish dataset-derived results remains unconfirmed. It does **not** measure Endeavour Group's actual campaign performance.
+This is a Promo Effectiveness portfolio extension using the PostgreSQL and dbt foundation from Retail Performance Analytics. It analyses dunnhumby's *The Complete Journey* public sample dataset, obtained separately and modelled in the shared database. Figures come from the public sample dataset, not a retailer's campaign data; permission to publish dataset-derived results remains unconfirmed.
 
 For the concise leadership version, see the [one-page executive brief](promo_effectiveness_executive_brief.md). The prospective protocol is in the [experiment design](experiment_design.md); reproducible commands are in the [reproduction guide](promo_effectiveness_reproduction.md).
 
-## Business problem and Endeavour relevance
+## Business problem and Retail Media relevance
 
 Retailers and suppliers need to know whether retail media and promotions create additional retailer sales, rather than simply receive credit for sales that would have happened anyway. Targeting records, coupon use and promotional sales are useful operational signals, but none alone establishes a counterfactual.
 
-This case study demonstrates a measurement workflow relevant to a Retail Media organisation such as Endeavour Group: validate the campaign and transaction data first, show what the current sources can support, reject unsupported causal claims, then specify a feasible holdout design. The analysis is based on the Complete Journey sample, not Endeavour customer, media, margin or campaign data. It cannot report Endeavour campaign outcomes.
+This case study demonstrates a measurement workflow for a Retail Media team: validate campaign and transaction data, show what the available sources support, reject unsupported causal claims, then specify a feasible holdout design.
 
 ## Data sources and what they measure
 
@@ -41,9 +41,9 @@ The source has **2,318 recorded redemption events** across 30 campaigns, from **
 
 The coupon-product-campaign mapping source also contains **5,164 exact duplicate rows** across 1,824 repeated key combinations (up to 19 copies of a combination). The existing staging model keeps one mapping per key without changing the raw source. This mapping deduplication is separate from the redemption-event check.
 
-Campaign 26 has **332 assigned households**, **31 recorded redeemers** and **73 redemption events**. Its 31 redeemers are not evidence that only 31 households were exposed, nor that the other assigned households received the campaign.
+Campaign 26 has **332 assigned households**, **31 recorded redeemers** and **73 redemption events**.
 
-Promotion records required a safe aggregation before joining to transaction sales. The source has 36,786,524 product-store-week state rows and 36,771,279 distinct product-store-week keys. There are 15,245 repeated keys with conflicting source states; the existing dbt model retains conflict evidence at a unique key rather than arbitrarily selecting one state. Of 2,595,732 sales lines, **563,774 match a promotion record (21.72%)** and **2,031,958 (78.28%) do not**. Unmatched means **promotion status unknown**, not “not promoted.” A further 858 matched sales lines carry a conflict flag. Code meanings are not verified, so these records are not verified customer exposures.
+Promotion records required a safe aggregation before joining to transaction sales. The source has 36,786,524 product-store-week state rows and 36,771,279 distinct product-store-week keys. There are 15,245 repeated keys with conflicting source states; the existing dbt model retains conflict evidence at a unique key rather than arbitrarily selecting one state. Of 2,595,732 sales lines, **563,774 match a promotion record (21.72%)** and **2,031,958 (78.28%) do not**. Unmatched means **promotion status unknown**, not “not promoted.” A further 858 matched sales lines carry a conflict flag. Promotion code meanings are not verified.
 
 ## Why the observational causal design was rejected
 
@@ -59,7 +59,7 @@ Campaign 26 is TypeA and runs on relative transaction days **224–264 inclusive
 
 Amounts below are mean and median recorded household sales per 28-day equivalent. The 41-day campaign-period totals are scaled by `28/41`; this is a descriptive rate normalisation, not an estimated effect. Zero-purchase households remain in the denominator.
 
-Values use the source dataset's sales-value unit; no conversion to Endeavour's reporting currency has been performed.
+Amounts use the source dataset's sales-value unit; no retailer currency conversion has been performed.
 
 | Window | Days | Assigned n | Assigned mean / median | Assigned active | Assigned zero | Not assigned n | Not assigned mean / median | Not assigned active | Not assigned zero |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -67,11 +67,11 @@ Values use the source dataset's sales-value unit; no conversion to Endeavour's r
 | Campaign | 41 (normalised to 28) | 332 | 221.14 / 164.50 | 95.2% | 16 | 2,168 | 123.81 / 65.19 | 82.3% | 383 |
 | Post | 28 | 332 | 216.63 / 162.19 | 93.7% | 21 | 2,168 | 128.00 / 61.25 | 76.8% | 502 |
 
-Mean baskets per household per 28-day equivalent were 7.15, 7.19 and 6.97 for assigned households across pre/campaign/post, compared with 4.28, 4.27 and 4.27 for the not-assigned group. This gap also exists before the campaign and remains descriptive.
+Mean baskets per household per 28-day equivalent were 7.15, 7.19 and 6.97 for assigned households across pre/campaign/post, compared with 4.28, 4.27 and 4.27 for the not-assigned group. This gap also exists before the campaign.
 
 For context, the assigned group's mean over the full 41-day campaign window is 323.81 per household, compared with 181.29 for the not-assigned group. The normalised figures above are the appropriate duration comparison. The assigned group already has higher mean and median spending in the pre-period, and 94.3% (313/332) of assigned households have some other campaign assignment somewhere in the bridge. Twenty-two (6.6%) are co-assigned to a campaign whose scheduled dates overlap Campaign 26's own 41 days; the broader 28-day pre/during/post audit found 50 with another assignment in that evaluation window. These are assignment/schedule facts, not confirmed overlapping delivery.
 
-The chart makes the descriptive distribution visible; neither the period changes nor the between-group gaps are campaign impact.
+The chart makes the descriptive distribution visible.
 
 ![Campaign 26 observed household spending by period, including zero-purchase households](figures/campaign26_observed_spending.svg)
 
@@ -99,7 +99,7 @@ Using that largest single-window SD and an illustrative 42-day reference mean of
 | 10% | 5,156 |
 | 15% | 2,292 |
 
-If there were only 2,500 eligible households, the normal-approximation MDE would be about 27.73 dataset sales units per household (14.4% of the reference mean). These are not Endeavour audience or outcome statistics. Counts exclude cluster inflation, data-linkage loss, non-compliance dilution and any gain from pre-period covariate adjustment. Use actual eligible-population data and a design-specific simulation before approving a test. The reproducible calculation is in `scripts/experiment_power_scenarios.py` and `src/promo_effectiveness/power.py`.
+If there were only 2,500 eligible households, the normal-approximation MDE would be about 27.73 dataset sales units per household (14.4% of the reference mean). Counts exclude cluster inflation, data-linkage loss, non-compliance dilution and any gain from pre-period covariate adjustment. Use the retailer's eligible-population data and a design-specific simulation before approving a test. The reproducible calculation is in `scripts/experiment_power_scenarios.py` and `src/promo_effectiveness/power.py`.
 
 ## Business implications and next steps
 
@@ -107,6 +107,16 @@ The current data support a transparent description of who was assigned, who rede
 
 For a Retail Media leader, the practical recommendation is to make exposure and assignment auditable and reserve a measurable holdout before launch. For a Head of Data Science, the recommendation is to pre-register an ITT metric and run power on the real eligible audience with the actual randomisation unit. Finance must supply product contribution margin, retailer-funded discounts, media delivery/agency costs and supplier-funding terms to determine break-even economics; sales alone are not profit.
 
+## Key terms
+
+- **Standardised mean difference (SMD):** The difference between two groups' means divided by their pooled standard deviation. An absolute SMD below 0.10 is a common diagnostic for close balance on a measured feature; it does not show that groups are equivalent on unmeasured factors or free of bias.
+- **Historical spending-trend diagnostic:** For the full-assignment matched cohort, the independent 12-week historical comparison used household-level slopes of weekly `log1p` sales from days 56–139, outside the matching feature window. The slope SMD of **−1.053** means the treated group's mean historical slope was 1.053 pooled standard deviations lower than the comparison group's. This is evidence of pre-existing trend imbalance, not a campaign effect.
+- **Campaign screening score:** The 10 points were assigned as follows: 0–2 for clean treated sample size (0 below 100, 1 for 100–199, 2 at 200 or more); 0–2 for maximum absolute clean-cohort SMD across pre-period sales, baskets and activity (0 above 0.20, 1 above 0.10 through 0.20, 2 at or below 0.10); 0–2 for joint local support (0 below 50%, 1 from 50% to below 70%, 2 at 70% or more); 0–2 for assignment retention after overlap exclusion using those same support tiers; 1 for complete 28-day pre/post coverage; and 1 when clean comparisons number at least 100 and are at least as numerous as clean treated households. The minimum feasibility gate separately required clean treated N ≥100, maximum absolute SMD ≤0.20, local support ≥50%, assignment retention ≥50%, at least 100 clean comparisons and at least as many comparisons as clean treated households, plus complete coverage. **No campaign passed this full gate.**
+- **Joint 2D local support:** The two features were `log1p` pre-period sales and `log1p` pre-period basket frequency, standardised using the clean comparison group. A treated household counted as supported if its fifth-nearest clean comparison was within the 95th-percentile leave-one-out fifth-neighbour distance among comparisons. The percentage is the share of clean treated households meeting that joint-distance rule; Campaign 26's screening value was 88.7%.
+- **Why Campaign 26 was explored:** It led the relative screening ranking with **8/10**, so it was used for a design-only matching feasibility check even though it did not pass the absolute minimum gate. That follow-up assessed sample retention and covariate balance; it did not estimate an effect or override the gate.
+- **Intention to treat (ITT):** The effect of assignment to a treatment offer, analysed with every eligible unit kept in its assigned group regardless of delivery, redemption or purchase.
+- **Minimum detectable effect (MDE):** The smallest effect a planned test is designed to detect at specified significance and power levels. The project's 10% example is a prospective planning scenario, not an observed result.
+
 ### Reproduction and publication boundary
 
-Run the descriptive notebook and experiment power script only with access to the existing `retail-dbt` environment and `dbt_dev` models. See [reproduction instructions](promo_effectiveness_reproduction.md). `secrets/`, source rows, database files and PBIX files remain excluded from Git. The project publishes attributed aggregate outputs under the practical approach documented in [data source and attribution](data_source.md); it does not claim that dunnhumby has issued a dataset-specific license for those derived results.
+Run the descriptive notebook and experiment power script only with access to the existing `retail-dbt` environment and `dbt_dev` models. See [reproduction instructions](promo_effectiveness_reproduction.md). `secrets/`, source rows, database files and PBIX files remain excluded from Git. The project publishes attributed aggregate outputs under the practical approach documented in [data source and attribution](data_source.md), which records the dataset-specific publication caveat.

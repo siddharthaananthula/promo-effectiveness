@@ -4,7 +4,7 @@
 
 This repository contains the Promo analysis, not a separate retail data platform. To reproduce database-backed calculations, you need access to a PostgreSQL `retail_analytics` database with the existing `dbt_dev` reporting models from [Retail Performance Analytics](https://github.com/siddharthaananthula/retail-performance-analytics). This project reads those models; it does not create a database or container, load source CSVs, run `dbt build`, or modify models. The shared upstream project is the source of truth for the loader and dbt definitions.
 
-The dataset must be obtained separately from dunnhumby and used under the terms that apply to that exact copy. See [data source and publication boundary](data_source.md). No raw data or credentials are included here.
+Figures in this repository come from dunnhumby's public *The Complete Journey* sample, not retailer campaign data. Obtain the dataset separately and use it under the terms that apply to that exact copy. See [data source and publication boundary](data_source.md). No raw data or credentials are included here.
 
 ## Python dependencies and tests
 
@@ -40,7 +40,7 @@ Run the historical power calculation from the repository root after configuring 
 & $Python scripts/experiment_power_scenarios.py
 ```
 
-The script reads three historical 42-day windows from `dbt_dev.fct_sales`. The same households recur in each window. The pooled household-window SD is descriptive only; the power scenarios use the largest single-window cross-household SD and do not treat repeated household windows as independent people. These sample-derived values are planning illustrations, not Endeavour statistics or verified pre-assignment outcomes.
+The script reads three historical 42-day windows from `dbt_dev.fct_sales`. The same households recur in each window. The pooled household-window SD is descriptive only; the power scenarios use the largest single-window cross-household SD and do not treat repeated household windows as independent people. These are planning illustrations, and their windows are not verified to precede assignment.
 
 ## Notebook and publication status
 

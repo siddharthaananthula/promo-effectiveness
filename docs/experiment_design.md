@@ -1,6 +1,6 @@
 # Prospective Retail Media incrementality experiment
 
-**Status:** proposal only. No experiment has been run. The existing retail dataset is used only to illustrate outcome variability for planning; no treatment effect or uplift is estimated.
+**Status:** proposal only. No experiment has been run. Planning inputs are illustrative and use only the public sample dataset; no treatment effect or uplift is estimated.
 
 ## Executive experiment specification
 
@@ -19,11 +19,11 @@ This design addresses the evidence gap in the current portfolio data: targeting 
 
 ## 1. Decision, hypothesis and population
 
-The decision is whether Endeavour should scale a specified, repeatable retail-media package for a defined supplier, product set, channel and audience. The protocol must name the creative, placement, offer, flight dates, frequency cap, eligible SKUs, stores/regions and delivery rules before assignment. Changing these during the test creates a different treatment.
+The decision is whether a retailer should scale a specified, repeatable retail-media package for a defined supplier, product set, channel and audience. The protocol must name the creative, placement, offer, flight dates, frequency cap, eligible SKUs, stores/regions and delivery rules before assignment. Changing these during the test creates a different treatment.
 
 The primary null is that assignment to the package does not change mean total retailer sales per eligible household during the campaign window. The primary alternative is a non-zero difference. A two-sided test avoids treating a potentially harmful sales change as impossible; the expected commercial direction can still be positive. The test does not establish profit unless margin and cost data are also complete.
 
-The target population is the set of unique, consented and linkable loyalty households meeting written campaign eligibility rules at a fixed eligibility snapshot. Those rules may use information available before randomisation, such as product/category eligibility, channel reachability, market and pre-period activity. They must not depend on post-assignment delivery, redemption or purchasing. Include eligible households with zero observed sales. State clearly that results generalise to this eligible, measurable population, not necessarily to anonymous shoppers or all Endeavour customers.
+The target population is the set of unique, consented and linkable loyalty households meeting written campaign eligibility rules at a fixed eligibility snapshot. Those rules may use information available before randomisation, such as product/category eligibility, channel reachability, market and pre-period activity. They must not depend on post-assignment delivery, redemption or purchasing. Include eligible households with zero observed sales. State clearly that results generalise to this eligible, measurable population, not necessarily to anonymous shoppers or all retailer customers.
 
 ## 2. Randomisation unit and groups
 
@@ -89,7 +89,7 @@ The project queried the existing `dbt_dev.fct_sales` model read-only. It aggrega
 
 The pooled standard deviation across all 7,500 household-window rows is 240.75, but those rows are not 7,500 independent households: the same households recur in all three windows, and the windows have different means. It is therefore reported only as a pooled descriptive spread and is **not** used as the power input. Instead, the planning calculation uses the largest cross-household SD from one window, **247.47**. That input is a cross-sectional spread from one 2,500-household window; repeated rows are not treated as additional independent households. This is a conservative choice among these three windows, not a formal upper confidence bound or a guarantee about future variance. The earlier days 56–97 window has SD 181.78, signalling temporal/panel composition variation.
 
-All figures are from the portfolio's existing retail dataset, not Endeavour Group statistics, a forecast, a target, or a treatment effect. Assignment/notification timestamps are unavailable, so even these pre-launch-scheduled windows are **not verified to precede assignment**. No Campaign 26 during/post sales or group differences enter the calculation. Because the same households recur, uncertainty around the historical variance estimate should not be calculated as if there were 7,500 independent units; a real protocol should use the current eligible Endeavour population and empirical or simulation-based power analysis.
+Assignment/notification timestamps are unavailable, so these pre-launch-scheduled windows are **not verified to precede assignment**. No Campaign 26 during/post sales or group differences enter the calculation. Because the same households recur, uncertainty around the historical variance estimate should not be calculated as if there were 7,500 independent units; a real protocol should use the retailer's current eligible population and empirical or simulation-based power analysis.
 
 ### Method and scenarios
 
@@ -114,7 +114,7 @@ The scenarios below use the illustrative mean 193.12 only to express MDEs as 5%,
 | 15% | 28.97 | 0.01 | 80% | 1,705 | 1,705 | 3,410 |
 | 15% | 28.97 | 0.01 | 90% | 2,172 | 2,172 | 4,344 |
 
-If a future trial had only **2,500 eligible households** and split them 1:1, the normal approximation gives an 80%-power, 5%-alpha MDE of about **27.73 dataset sales units per household**, or **14.4%** of the illustrative reference mean. This is a size illustration using this dataset's household count; it says nothing about Endeavour's addressable audience. A 10% MDE would require 5,156 total households under these assumptions; a 5% MDE would require 20,622.
+If a future trial had only **2,500 eligible households** and split them 1:1, the normal approximation gives an 80%-power, 5%-alpha MDE of about **27.73 dataset sales units per household**, or **14.4%** of the illustrative reference mean. This is a size illustration using the sample's household count; confirm the retailer's addressable audience before launch. A 10% MDE would require 5,156 total households under these assumptions; a 5% MDE would require 20,622.
 
 Reproduce the database input and scenario table from the repository root with the existing `retail-dbt` environment:
 
@@ -125,7 +125,7 @@ $Python = 'S:\venvs\retail-dbt\Scripts\python.exe'
 
 The script uses `secrets/retail-analytics.env` through the existing secure loader, performs read-only queries against the existing dbt mart, prints only aggregate statistics, and never prints credential values. The calculation functions are in `src/promo_effectiveness/power.py`; their unit tests are in `tests/test_experiment_design.py`.
 
-Before final protocol approval, replace this benchmark with a governed extract of the proposed Endeavour eligible population, the exact planned campaign window and endpoint; assess skew and outliers without post hoc exclusions; simulate the actual randomisation/strata; and increase counts for any cluster design, linkage loss or delivery dilution. Confirm whether the commercially useful MDE is attainable before launching.
+Before final protocol approval, replace this benchmark with a governed extract of the proposed retailer eligible population, the exact planned campaign window and endpoint; assess skew and outliers without post hoc exclusions; simulate the actual randomisation/strata; and increase counts for any cluster design, linkage loss or delivery dilution. Confirm whether the commercially useful MDE is attainable before launching.
 
 ## 7. Analysis plan and checks
 
@@ -159,6 +159,6 @@ Define net incremental contribution and break-even rules with Finance before the
 
 ## 10. Open questions and limitations
 
-The current project cannot answer whether household targeting/suppression is technically available at Endeavour, the size and composition of an eligible campaign audience, the actual channel exposure rate, the correct randomisation cluster/ICC, the assignment timestamp, or the economic break-even threshold. It also cannot establish whether the current transaction/promotion data map to current Endeavour customer identifiers, prices, margins or media logs. These require confirmation from Retail Media, loyalty, campaign operations, data engineering, privacy and Finance owners.
+The current project cannot answer whether household targeting/suppression is technically available, the size and composition of an eligible campaign audience, the actual channel exposure rate, the correct randomisation cluster/ICC, the assignment timestamp, or the economic break-even threshold. It also cannot establish whether the current transaction/promotion data map to a retailer's customer identifiers, prices, margins or media logs. These require confirmation from Retail Media, loyalty, campaign operations, data engineering, privacy and Finance owners.
 
-This proposal is not a claim that any campaign is incremental or profitable. Current observational campaign assignment, coupon redemption and incomplete promotion records remain descriptive evidence only. No matching, uplift calculation or causal analysis of that dataset is part of Phase 5.
+This proposal is not a claim that any campaign is incremental or profitable. Current observational campaign assignment, coupon redemption and incomplete promotion records remain descriptive evidence only. No matching, uplift calculation or causal analysis of that dataset is part of the proposed experiment design.

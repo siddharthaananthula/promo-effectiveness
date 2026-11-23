@@ -1,4 +1,4 @@
-"""Reproduce the illustrative Phase 5 power inputs from the existing dbt mart."""
+"""Reproduce illustrative experiment-design power inputs from the existing dbt mart."""
 
 from pathlib import Path
 import sys
@@ -55,7 +55,7 @@ def main() -> None:
     frame_mde = minimum_detectable_effect(sigma, illustrative_frame_arm, illustrative_frame_arm)
 
     print("Database transaction mode: read-only")
-    print("Historical planning input only; not Endeavour statistics or a treatment effect.")
+    print("Historical sample planning input only; not a treatment effect.")
     print(window_summary.round(2).to_string())
     print(f"Reference mean (average of three window means): {reference_mean:.2f}")
     print(

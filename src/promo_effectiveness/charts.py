@@ -1,4 +1,4 @@
-"""Dependency-light SVG charts for the Phase 3 descriptive analysis."""
+"""Dependency-light SVG charts for descriptive campaign analysis."""
 
 import math
 from pathlib import Path

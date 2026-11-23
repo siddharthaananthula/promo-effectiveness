@@ -4,7 +4,7 @@
 
 ## Evidence from this portfolio analysis
 
-The analysis uses Dunnhumby's *The Complete Journey* sample and the repository's existing PostgreSQL/dbt reporting models. It is **not Endeavour Group campaign data** and does not measure Endeavour's actual performance.
+The figures use dunnhumby's public *The Complete Journey* sample and the repository's existing PostgreSQL/dbt reporting models; they are not any retailer's campaign results.
 
 - The sample contains 30 campaigns, 2,500 purchasing households and 2.60 million transaction lines. Campaign and redemption validation found 2,318 recorded coupon events, 434 unique redeemers across all campaigns, and zero redemption-to-assignment mismatches. A redemption is not an exposure.
 - Promotion records match **21.72%** of transaction lines; **78.28%** have unknown promotion status. Conflicting promotion states remain on 15,245 product-store-week keys, so an unmatched line must not be called unpromoted or unexposed.
@@ -19,6 +19,6 @@ Use total retailer sales per eligible household during a pre-registered 42-day c
 
 ## Power and readiness
 
-An illustrative calculation from historical sample-dataset windows uses the largest single-window household-spend SD (247.47 dataset sales units). At two-sided α=0.05 and 80% power, a 10% relative MDE requires about **5,156 households**; a 5% MDE requires **20,622**. The power input is from one 2,500-household cross-section; the repeated-window rows are not counted as 7,500 independent households. These are not Endeavour statistics; actual audience size, variability, clustering and data loss must be assessed before launch.
+An illustrative calculation from historical sample-dataset windows uses the largest single-window household-spend SD (247.47 dataset sales units). At two-sided α=0.05 and 80% power, a 10% relative MDE requires about **5,156 households**; a 5% MDE requires **20,622**. The power input is from one 2,500-household cross-section; the repeated-window rows are not counted as 7,500 independent households. Actual audience size, variability, clustering and data loss must be assessed before launch.
 
 **Readiness:** design direction is clear; experiment launch is not yet approved. Confirm household suppression and identity linkage, eligible audience size, timestamped assignment and delivery logs, concurrent-campaign rules, privacy controls, and Finance-approved break-even economics. See the [full case study](promo_effectiveness_case_study.md) and [experiment proposal](experiment_design.md).
